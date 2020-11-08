@@ -7,5 +7,16 @@ module.exports = {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
+  },
+
+  getHtml: function(path, replace) {
+    const fs = require('fs');
+    let content = fs.readFileSync(path).toString();
+
+    replace.forEach((element) => {
+      content = content.replace(element.index, element.value)
+    })
+
+    return content
   }
 }
