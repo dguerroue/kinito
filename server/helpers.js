@@ -21,6 +21,6 @@ module.exports = {
   },
 
   getPlayer: function(room) {
-    return Object.values(room).filter((user) => user.player)
+    return Object.values(room).filter((user) => user.player)[0]
   }
 }

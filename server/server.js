@@ -11,14 +11,14 @@ io.on('connection', (socket) => {
   let room_id;
 
   socket.on('JOIN_ROOM', (payload) => {
-    if(!rooms[room_id])
+    if(!rooms[payload.roomCode])
       io.to(socket_id).emit('ROOM_NOT_CREATED', {})
 
     room_id = payload.roomCode
 
     Object.values(rooms[room_id]).map((element) => {
       io.to(element.id).emit('UPDATE_ROOM', {
-        users: Object.values(room)
+        users: Object.values(rooms[room_id])
       })
     })
 
