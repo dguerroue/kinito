@@ -18,5 +18,9 @@ module.exports = {
     })
 
     return content
+  },
+
+  getPlayer: function(room) {
+    return Object.values(room).filter((user) => user.player)
   }
 }
