@@ -87,7 +87,7 @@ function drawDices(dices) {
 
 
 
-var btnShuffle = document.querySelector('button.action_shuffle');
+var btnShuffle = document.querySelector('button.action-shuffle');
 
 // drawDices();
 btnShuffle.onclick = function(e){

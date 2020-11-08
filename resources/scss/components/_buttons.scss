@@ -1,20 +1,16 @@
 button{
   cursor: pointer;
 
-  &.action_shuffle{
+  &.action-shuffle{
     width: 80px;
     height: 80px;
-    position: absolute;
-    left: 50%; transform: translateX(-50%);
-    bottom: 10%;
-    background-color: #27ae60;
-    border: none;
-    border-radius: 55%;
-
+    background-color: $color-primary;
     background-image: url(/public/img/dices_icon_white.svg);
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: center center;
+    border: none;
+    border-radius: 55%;
 
     transition: transform .2s, background-color .2s;
 
@@ -22,11 +18,11 @@ button{
       outline: none;
     }
     &:active:not(.disabled){
-      transform: translateX(-50%) scale(0.95);
+      transform: scale(0.95);
       background-color: darken(#27ae60, 10);
-      cursor: pointer;
     }
     &.disabled{
+      pointer-events: none;
       background-color: #555;
     }
   }
