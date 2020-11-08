@@ -29,6 +29,7 @@ module.exports = {
       ]
     }),
     new HtmlWebpackPlugin({
+      filename: 'index.html',
       template: path_root('resources/views/index.html')
     })
   ],

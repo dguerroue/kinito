@@ -2,6 +2,20 @@ body.home {
   
   #content {
     padding: 60px 0;
-    align-items: flex-end;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      .form-user {
+        flex-grow: 1;
+      }
+    }
+
+    .btn-links {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

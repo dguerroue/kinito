@@ -13,16 +13,25 @@
   <body class="home">
 
     <header>
-      <a href="#"><h1>KINITO</h1></a>
+      <a href="/"><h1>KINITO</h1></a>
     </header>
  
     <div id="content">
 
         <div class="container">
-          <div class="d-flex flex-column ">
-            <a class="btn btn-link" href="#">Rejoindre une salle</a>
-            <a class="btn btn-link" href="#">Créer une salle</a>
+
+          <div class="form-group form-user">
+
+            <label for="username">Pseudo</label>
+            <input type="text" id="username" class="flex-grow" oninput="toggleOnInput(this, '.home .btn-links a')">
+
           </div>
+
+          <div class="btn-links">
+            <a class="btn btn-link my-2" href="#" disabled>Rejoindre une salle</a>
+            <a class="btn btn-link my-2" href="create-room.html" disabled onclick="createRoom()">Créer une salle</a>
+          </div>
+
         </div>
  
     </div>

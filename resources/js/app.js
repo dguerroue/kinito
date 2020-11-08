@@ -2,17 +2,19 @@
 //
 import '../scss/index.scss'
 
-
 // socket.emit(_EVENT_NAME_, _PAYLOAD_);
 
 // socket.on(_EVENT_NAME_, () => {
 //   //callback
 // })
 
-// MODULES
-//
-
 const socket = io('http://828f54346b24.ngrok.io')
+
+
+/**
+ * LES DES
+ * TODO: BOUGER TOUT ÇA
+ */
 
 class Dices{
   constructor(numDices){
@@ -29,10 +31,6 @@ class Dices{
     }
   }
 }
-
-//###############################
-//          FUNCTIONS
-//###############################
 
 function drawDices(dices) {
 
@@ -72,10 +70,6 @@ function drawDices(dices) {
   }
 };
 
-//######## END FUNCTIONS ########
-
-
-
 var btnShuffle = document.querySelector('button.action-shuffle');
 if(btnShuffle) {
 
@@ -101,3 +95,40 @@ if(btnShuffle) {
   
   }
 }
+
+
+
+/**
+ * @desc Toggle targeted items if input not empty
+ * @param {String} selector
+ */
+function toggleOnInput(input, selector) {
+  
+  let elemsToToggle = document.querySelectorAll(selector)
+
+  for(let i = 0; i < elemsToToggle.length; i++) {
+    let elemToToggle = elemsToToggle[i]
+
+    if(input.value !== '') {
+      elemToToggle.removeAttribute('disabled')
+    } else {
+      elemToToggle.setAttribute('disabled', true)
+    }
+  }
+
+}
+window.toggleOnInput = toggleOnInput
+
+// join room
+
+// create room
+function createRoom() {
+  let username = document.getElementById('username').value
+
+  console.log(username)
+
+  socket.emit('CREATE_ROOM', {
+    username: username
+  });
+}
+window.createRoom = createRoom

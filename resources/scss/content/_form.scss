@@ -1,0 +1,14 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    text-transform: uppercase;
+  }
+  input {
+    padding: 3px 10px;
+    line-height: 2.5rem;
+    border-radius: 4px;
+    border: 0;
+  }
+}
