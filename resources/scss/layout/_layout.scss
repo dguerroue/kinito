@@ -26,24 +26,16 @@ header {
 div#content {
   display: flex;
   flex-grow: 1;
+  flex-direction: column;
 }
 
 
 //TODO: move
-
-section#dices{
-  display: flex;
-  max-width: 450px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  background-color: #212121;
-}
 
 section#actions {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-bottom: 60px;
 }

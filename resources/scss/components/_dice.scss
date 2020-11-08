@@ -3,13 +3,14 @@
   box-sizing: border-box;
   width: 100px;
   height: 100px;
+  margin: 0 30px;
   justify-content: center;
   align-items: center;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 15px 0px #000;
 
-  .dot-wrapper{
+  .dots-wrapper{
     width: 70px;
     height: 70px;
     position: relative;
