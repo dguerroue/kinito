@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+body {
+  font-family: $font-body;
+}
+
+// icon font
+i[class*="icon-"] {
+  display: inline-block;
+  line-height: 50%;
+
+  &::before {
+      display: inline-block;
+      line-height: 1;
+  }
+}

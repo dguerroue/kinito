@@ -1,0 +1,37 @@
+.dice {
+  display: flex;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 0px #000;
+
+  .dot-wrapper{
+    width: 70px;
+    height: 70px;
+    position: relative;
+  }
+
+  span.dot{
+    display: block;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #000;
+    // // box-shadow: 0 0 0px 4px #000;
+    // border: 5px solid #000;
+
+    &.dot1{ top: 0; left: 0; }
+    &.dot2{ top: 0; right: 0; }
+    &.dot3{ top: 50%; left: 50%; transform: translate(-50%, -50%);}
+    &.dot4{ bottom: 0; left: 0; }
+    &.dot5{ bottom: 0; right: 0; }
+
+    &.dot61{ left: 0; top: 50%; transform: translateY(-50%); }
+    &.dot62{ right: 0; top: 50%; transform: translateY(-50%); }
+  }
+}

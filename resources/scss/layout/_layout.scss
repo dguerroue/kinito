@@ -1,0 +1,26 @@
+html {
+  height: 100%;
+  overflow: auto;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  background-color: #212121;
+  overflow: auto;
+}
+
+header {
+  h1 {
+    text-align: center;
+    color: #FFF;
+  }
+}
+
+section#dices{
+  display: flex;
+  padding: 60px 20px;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  background-color: #212121;
+}
+
