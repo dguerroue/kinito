@@ -1,4 +1,5 @@
-body.home {
+/* HOME */
+[data-view="home"] {
   
   #content {
     padding: 60px 0;
@@ -8,8 +9,10 @@ body.home {
       flex-direction: column;
       flex-grow: 1;
 
-      .form-user {
+      #forms {
         flex-grow: 1;
+      }
+      .form-username {
       }
     }
 
@@ -18,4 +21,19 @@ body.home {
       flex-direction: column;
     }
   }
+}
+
+/* GAME */
+[data-view="game"] {
+
+  section#dices{
+    display: flex;
+    max-width: 450px;
+    padding: 60px 20px;
+    flex-grow: 1;
+    flex-flow: row nowrap;
+    justify-content: center;
+    background-color: #212121;
+  }
+
 }

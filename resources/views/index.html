@@ -10,7 +10,7 @@
     <meta name="description" content="Le jeu kinito dans votre poche !">
   </head>
  
-  <body class="home">
+  <body data-view="home">
 
     <header>
       <a href="/"><h1>KINITO</h1></a>
@@ -20,22 +20,27 @@
 
         <div class="container">
 
-          <div class="form-group form-user">
-
-            <label for="username">Pseudo</label>
-            <input type="text" id="username" class="flex-grow" oninput="toggleOnInput(this, '.home .btn-links a')">
-
+          <div id="forms">
+            <div class="form-group form-username">
+              <label for="username">Pseudo</label>
+              <input type="text" id="username" class="flex-grow" oninput="toggleOnInput(this, '.btn-links #create-room')">
+            </div>
+            <div class="form-group form-roomcode">
+              <label for="username">Code</label>
+              <input type="text" id="roomcode" class="flex-grow" oninput="toggleOnInput(this, '.btn-links #join-room')">
+            </div>
           </div>
 
           <div class="btn-links">
-            <a class="btn btn-link my-2" href="#" disabled>Rejoindre une salle</a>
-            <a class="btn btn-link my-2" href="create-room.html" disabled onclick="createRoom()">Créer une salle</a>
+            <a id="join-room" class="btn btn-link my-2" href="#" onclick="joinRoom()" disabled>Rejoindre une salle</a>
+            <a id="create-room" class="btn btn-link my-2" href="#" onclick="createRoom()" disabled>Créer une salle</a>
           </div>
 
         </div>
  
     </div>
 
-    <script src="http://828f54346b24.ngrok.io/socket.io/socket.io.js"></script>
+    <!-- <script src="http://828f54346b24.ngrok.io/socket.io/socket.io.js"></script> -->
+    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
   </body>
 </html>
