@@ -2,42 +2,28 @@
 //
 import '../scss/index.scss'
 
+
+// socket.emit(_EVENT_NAME_, _PAYLOAD_);
+
+// socket.on(_EVENT_NAME_, () => {
+//   //callback
+// })
+
 // MODULES
 //
 class Dices{
   constructor(numDices){
     this.numDices = numDices;
-    this.visible = true;
     this.values = new Array();
-    this.kinitoScore = '';
+    this.socket = io('http://830df3d28c29.ngrok.io')
 
     this.shuffle();
-
-    //set kinitoScore
-    if (this.values.length === 2){
-      let valuesKinito = new Array(this.values[0], this.values[1]);
-      //sort descending order
-      valuesKinito.sort(function(a,b){
-        return b - a;
-      });
-
-      for(let i = 0; i < valuesKinito.length; i++){
-        this.kinitoScore += valuesKinito[i].toString();
-      }
-    }
-
   }
 
   shuffle(){
     for (let i = 0; i < this.numDices; i++) {
       this.values[i] = Math.floor(Math.random() * 6 + 1);
     }
-  }
-  show(){
-    this.visible = true;
-  }
-  hide(){
-    this.visible = false;
   }
 }
 

@@ -9,7 +9,8 @@ module.exports = merge(common, {
   devtool: 'source-map',
   devServer: {
     inline: true,
-    contentBase: path_root('public/')
+    contentBase: path_root('public/'),
+    port: 8000
   },
   resolve: {
     extensions: ['.js', '.scss', '.css']

@@ -4,7 +4,8 @@
   "scripts": {
     "build": "webpack --config webpack/webpack.config.prod.js --progress",
     "dev": "webpack --config webpack/webpack.config.dev.js --progress",
-    "watch": "webpack-dev-server --open --config webpack/webpack.config.dev.js --progress"
+    "watch": "webpack --watch --config webpack/webpack.config.dev.js --progress",
+    "server": "webpack-dev-server --open --config webpack/webpack.config.dev.js --progress"
   },
   "browserslist": "> 1% and last 2 versions, ie >= 9",
   "devDependencies": {

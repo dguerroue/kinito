@@ -18,6 +18,8 @@ header {
 
 section#dices{
   display: flex;
+  max-width: 450px;
+  margin: 0 auto;
   padding: 60px 20px;
   flex-flow: row nowrap;
   justify-content: space-around;
