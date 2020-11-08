@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
 
     io.to(socket_id).emit('JOINED_ROOM', {
       roomCode: room_id,
-      viewName: 'game',
+      viewName: 'pending',
       users: Object.values(rooms[room_id]),
       html: helpers.getHtml(__dirname + '/../resources/views/pending.html', [
         {
