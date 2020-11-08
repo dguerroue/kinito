@@ -1,15 +1,27 @@
-button{
+.btn {
   cursor: pointer;
 
   &.btn-link {
     margin: 10px;
     padding: 15px 20px;
+    text-align: center;
     color: #FFF;
     font-size: 1.2rem;
     text-transform: uppercase;
     background-color: $color-primary;
+    text-decoration: none;
     border: 0;
     border-radius: 4px;
+
+    &:hover {
+      background-color: darken($color-primary, 10%);
+    }
+    &:active {
+      background-color: darken($color-primary, 15%);
+    }
+    &:focus {
+      outline: 0;
+    }
   }
 
   &.action-shuffle {
