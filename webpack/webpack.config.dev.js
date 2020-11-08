@@ -10,7 +10,8 @@ module.exports = merge(common, {
   devServer: {
     inline: true,
     contentBase: path_root('public/'),
-    port: 8000
+    port: 8000,
+    clientLogLevel: 'silent'
   },
   resolve: {
     extensions: ['.js', '.scss', '.css']
