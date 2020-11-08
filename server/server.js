@@ -7,11 +7,37 @@ const helpers = require('./helpers')
 let rooms = {}
 
 io.on('connection', (socket) => {
-  console.log("user connected");
   const socket_id = socket.id
   let room_id;
 
-  socket.on('join room', (payload) => {
+  socket.on('JOIN_ROOM', (payload) => {
+    if(!rooms[room_id])
+      io.to(socket_id).emit('ROOM_NOT_CREATED', {})
+
+    room_id = payload.roomCode
+
+    Object.values(rooms[room_id]).map((element) => {
+      io.to(element.id).emit('UPDATE_ROOM', {
+        users: Object.values(room)
+      })
+    })
+
+    rooms[room_id][socket.id] = {
+      id: socket.id,
+      name: payload.username,
+      player: false,
+    }
+
+    io.to(socket_id).emit('JOINED_ROOM', {
+      roomCode: room_id,
+      viewName: 'game',
+      users: Object.values(rooms[room_id]),
+      html: helpers.getHtml(__dirname + '/../resources/views/pending.html', [
+        {
+          index: "__PLAYER__",
+          value: helpers.getPlayer(rooms[room_id]).name
+        },
+      ])})
 
   })
 
@@ -22,11 +48,16 @@ io.on('connection', (socket) => {
       rooms[room_id] = {}
     }
 
-    rooms[room_id][socket.id] = payload.username
+    rooms[room_id][socket.id] = {
+      id: socket.id,
+      name: payload.username,
+      player: true,
+    }
 
     io.to(socket_id).emit('ROOM_CREATED', {
       roomCode: room_id,
       viewName: 'game',
+      users: Object.values(rooms[room_id]),
       html: helpers.getHtml(__dirname + '/../resources/views/game.html', [
         {
           index: "__ROOM_CODE__",
@@ -36,9 +67,14 @@ io.on('connection', (socket) => {
   })
 
   socket.on('disconnect', () => {
-    console.log("user disconnected");
     if(room_id) {
       delete rooms[room_id][socket_id]
+
+      Object.values(rooms[room_id]).map((element) => {
+        io.to(element.id).emit('UPDATE_ROOM', {
+          users: Object.values(rooms[room_id]),
+        })
+      })
 
       let user_list = Object.values(rooms[room_id])
       user_list = user_list.filter((element) => element != null)
