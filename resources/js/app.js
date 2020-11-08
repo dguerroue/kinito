@@ -11,11 +11,14 @@ import '../scss/index.scss'
 
 // MODULES
 //
+
+const socket = io('http://828f54346b24.ngrok.io')
+
 class Dices{
   constructor(numDices){
     this.numDices = numDices;
     this.values = new Array();
-    this.socket = io('http://830df3d28c29.ngrok.io')
+    this.socket = io('http://828f54346b24.ngrok.io')
 
     this.shuffle();
   }
@@ -32,7 +35,6 @@ class Dices{
 //###############################
 
 function drawDices(dices) {
-  //DEBUG : console.log(dices);
 
   let dicesWrapper = document.getElementById('dices');
   //Clear
@@ -41,13 +43,15 @@ function drawDices(dices) {
   for (let i = 0; i < dices.numDices; i++) {
     let dice = document.createElement("div");
     dice.setAttribute("class", "dice dice-" + dices.values[i]);
+
     let dotWrapper = document.createElement("div");
     dotWrapper.setAttribute("class","dot-wrapper");
+
     let dotToShow = new Array();
-    
 
     //Creates dots = value
     let diceValue = dices.values[i];
+
     if (diceValue === 1) dotToShow = [3];
     else if (diceValue === 2) dotToShow = [1,5];
     else if (diceValue === 3) dotToShow = [1,3,5];
@@ -72,27 +76,28 @@ function drawDices(dices) {
 
 
 
-
 var btnShuffle = document.querySelector('button.action-shuffle');
+if(btnShuffle) {
 
-// drawDices();
-btnShuffle.onclick = function(e){
-  e.preventDefault();
+  // drawDices();
+  btnShuffle.onclick = function(e){
+    e.preventDefault();
+    
+    // //disable button
+    // this.disabled = true;
+    // this.classList.add("disabled");
+    
+    var loop = 0;
+    function looping(){
+      setTimeout(function () {
+        var dices = new Dices(2);
+        drawDices(dices);
+        
+        loop++;
+        if(loop < 8) looping();
+      }, 120);
+    }
+    looping();
   
-  // //disable button
-  // this.disabled = true;
-  // this.classList.add("disabled");
-  
-  var loop = 0;
-  function looping(){
-    setTimeout(function () {
-      var dices = new Dices(2);
-      drawDices(dices);
-      
-      loop++;
-      if(loop < 8) looping();
-    }, 120);
   }
-  looping();
-
 }

@@ -3,18 +3,33 @@ html {
   overflow: auto;
 }
 body {
+  display: flex;
   min-height: 100%;
   margin: 0;
+  flex-direction: column;
   background-color: #212121;
-  overflow: auto;
 }
 
 header {
+  padding: 1rem 0;
+
   h1 {
     text-align: center;
     color: #FFF;
   }
+  a,
+  a:visited {
+    text-decoration: none;
+  }
 }
+
+div#content {
+  display: flex;
+  flex-grow: 1;
+}
+
+
+//TODO: move
 
 section#dices{
   display: flex;
@@ -31,5 +46,4 @@ section#actions {
   justify-content: center;
   align-items: center;
   width: 100%;
-  
 }
