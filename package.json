@@ -2,6 +2,7 @@
   "name": "webpack-starter",
   "version": "1.0.0",
   "scripts": {
+    "serve": "nodemon server/server.js",
     "build": "webpack --config webpack/webpack.config.prod.js --progress",
     "dev": "webpack --config webpack/webpack.config.dev.js --progress",
     "watch": "webpack-dev-server --open --config webpack/webpack.config.dev.js --progress"
@@ -34,6 +35,9 @@
     "webpack-merge": "^5.1.4"
   },
   "dependencies": {
-    "bootstrap": "^4.5.2"
+    "bootstrap": "^4.5.2",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6",
+    "socket.io": "^3.0.0"
   }
 }
